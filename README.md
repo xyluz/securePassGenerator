@@ -6,7 +6,7 @@ Simple PHP tool to generate secure password
 Super Easy to get running.
 
 - Clone repo
-- Upload to serve (remote or local)
+- Upload to server (remote or local)
 - Go to folder directory from browser (e.g localhost/securePassGenerator)
 - You should get password displayed on the screen
 
