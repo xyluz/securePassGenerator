@@ -2,6 +2,12 @@
 
 require_once("securePassGenerator.php");
 
+if(isset($_POST['total_length'])){
+	$generated = index($_POST['total_length']);
+}else{
+	$generated = index(10);
+}
+
 
 
 ?>
@@ -37,10 +43,19 @@ require_once("securePassGenerator.php");
 		
 		<div class="container">
 
-	      <form class="form-signin">
-	        <h2 class="form-signin-heading">Generate Password</h2>
-	        <label for="inputEmail" class="sr-only">Your Password is: </label>
-	        <input type="text" disabled value="<?php  display(index()); ?>" class="form-control" style="text-align: center; font-size: 25px;">
+	      <form class="form-signin" style="text-align: center" method="POST">
+	       
+	        <h3 >Secure Password Generator</h3>
+	        <h5>Welcome, click the button to generate a new password. Specify length you want, Default length is 10 </h5>
+	        <div class="col-sm-5" style="margin-bottom: 5px;">
+	        <? if(isset($_POST['total_length'])){
+	        	$length = $_POST['total_length']; 
+	        	} else{
+	        		$length = 10;
+	        		} ?>
+	      	<h5>Total Length:</h5> <input type="text" name="total_length" value="<?php echo $length ?>" size="10" style="text-align: center; font-size: 25px;" class="form-control">
+	      	</div>
+	        <input type="text" disabled value="<?php  echo $generated; ?>" class="form-control" style="text-align: center; font-size: 25px;">
 	        	       
 	       <p>
 	        <button class="btn btn-lg btn-primary btn-block" type="submit">Generate</button>

@@ -3,9 +3,9 @@
 //arrays
 
 
-function index(){
+function index($l){
 	
-	print_r(generate(7,5,3));
+	return generate($l,5,3);
 
 } 
 
@@ -21,8 +21,12 @@ function generate($total_Length, $uppercase_length, $lowercase_length){
 	$n = randomizeArray($numbers,3);
 	$s = randomizeArray($symbols,3);
 	$merge = array_merge($u,  $l , $n , $s);
+
 	shuffle($merge);
-	return implode('',$merge);
+
+	$split = implode('',$merge);
+
+	return substr($split, 0, $total_Length);
 
 	
 
