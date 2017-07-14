@@ -29,7 +29,7 @@ require_once("securePassGenerator.php");
 	      <form class="form-signin">
 	        <h2 class="form-signin-heading">Generate Password</h2>
 	        <label for="inputEmail" class="sr-only">Your Password is: </label>
-	        <input type="text" disabled value="<?php  display(index()); ?>" class="form-control" style="text-align: center; font-size: 25px">
+	        <input type="text" disabled value="<?php  display(index()); ?>" class="form-control" style="text-align: center; font-size: 25px;">
 	        	       
 	       <p>
 	        <button class="btn btn-lg btn-primary btn-block" type="submit">Generate</button>
