@@ -48,6 +48,3 @@ function randomizeArray(array $array, $length){
 
 }
 
-function display($value){
-	echo $value;
-}
