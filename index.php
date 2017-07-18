@@ -2,12 +2,19 @@
 
 require_once("securePassGenerator.php");
 
+if(isset($_POST['export']) && $_POST['export'] == "yes"){
+
+	$file = export_as_txt($_POST["generated_password"],$_POST["generated_username"]);
+
+}
+
 if(isset($_POST['total_length'])){
 	$generated = index($_POST['total_length']);
+
 }else{
 	$generated = index(10);
 }
-
+$username = generateUsername();
 
 
 ?>
@@ -15,7 +22,7 @@ if(isset($_POST['total_length'])){
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title></title>
+		<title>Secure Password Generator</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -23,7 +30,9 @@ if(isset($_POST['total_length'])){
 		<link href="bootstrap.min.css" rel="stylesheet">
 		<link href="style.css" rel="stylesheet">
 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity=" sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
 
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,12 +67,36 @@ if(isset($_POST['total_length'])){
 	        <input type="text" disabled value="<?php  echo $generated; ?>" class="form-control" style="text-align: center; font-size: 25px;">
 	        	       
 	       <p>
+
 	        <button class="btn btn-lg btn-primary btn-block" type="submit">Generate</button>
+	        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="showExportForm()">Export</button>
+	       
 	        </p>
 	      </form>
-
+	      <div style="display: none;" id="export_form" >
+		      <form class="form-signin" style="text-align: center" method="POST" >
+		      	 <input type="text" name="generated_username" value="<?php  echo $username; ?>" class="form-control" style="text-align: center; font-size: 25px;">
+		      	 <input type="text" name="generated_password" readonly value="<?php  echo $generated; ?>" class="form-control" style="text-align: center; font-size: 25px;">
+		      	 <input type="hidden" value="yes" name="export">
+		      	 <button class="btn btn-lg btn-primary btn-block" type="submit">Export</button>
+		      </form>
+	      </div>
 	     </div> <!-- /container -->
+	     <p class="form-signin" style="text-align: center">
+	     	<?php if(isset($file) && $file != "") { ?>
+	     	<a href="<?php echo $file ?>" download>Your file is ready, click here to download it.</a>
+	     	<?php } ?>
+	     </p>
+	     <script>
+	     	
+	     	function showExportForm(){
 
+	     		$("#export_form").slideToggle();
+
+	     	}     	
+
+
+	     </script>
 
   	</body>
 </html>
