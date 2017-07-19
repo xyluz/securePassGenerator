@@ -21,3 +21,6 @@ Change the figures as you like.
 
 Ofcourse, this can be improved in many ways, if you want to improve it, please go ahead.
 
+
+You can use it without setting up here: http://spg.xyluz.com
+
