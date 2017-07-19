@@ -24,9 +24,7 @@ function generate($total_Length, $uppercase_length, $lowercase_length){
 
 	shuffle($merge);
 
-	$split = implode('',$merge);
-
-	return substr($split, 0, $total_Length);
+	return substr(toString($merge), 0, $total_Length);
 
 	
 

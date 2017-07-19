@@ -74,7 +74,9 @@ $username = generateUsername();
 	        </p>
 	      </form>
 	      <div style="display: none;" id="export_form" >
+
 		      <form class="form-signin" style="text-align: center" method="POST" >
+		       <p class="text-info">Password will be exported as a text file</p>
 		      	 <input type="text" name="generated_username" value="<?php  echo $username; ?>" class="form-control" style="text-align: center; font-size: 25px;">
 		      	 <input type="text" name="generated_password" readonly value="<?php  echo $generated; ?>" class="form-control" style="text-align: center; font-size: 25px;">
 		      	 <input type="hidden" value="yes" name="export">
