@@ -89,6 +89,12 @@ $username = generateUsername();
 	     	<a href="<?php echo $file ?>" download>Your file is ready, click here to download it.</a>
 	     	<?php } ?>
 	     </p>
+
+	     <p class="form-signin" style="text-align: center">
+	     contribute: <br>
+	     	<a href="https://github.com/xyluz/securePassGenerator.git" target="_blank"><img src="http://www.freeiconspng.com/uploads/github-circle-mascot-git-icon-6.png" style="width: 15%"></a>
+
+	     </p>
 	     <script>
 	     	
 	     	function showExportForm(){
