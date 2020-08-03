@@ -57,7 +57,7 @@ $username = generateUsername();
 	        <h3 >Secure Password Generator</h3>
 	        <h5>Welcome, click the button to generate a new password. Specify length you want, Default length is 10 </h5>
 	        <div class="col-sm-5" style="margin-bottom: 5px;">
-	        <? if(isset($_POST['total_length'])){
+	        <?php if(isset($_POST['total_length'])){
 	        	$length = $_POST['total_length']; 
 	        	} else{
 	        		$length = 10;
